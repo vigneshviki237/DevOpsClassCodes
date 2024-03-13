@@ -12,14 +12,14 @@ pipeline {
             steps {
                 script {
                     if (params.branches == 'master') {
-                    withMaven(maven : 'Maven') {
-                    sh 'mvn package'
+                        withMaven(maven: 'Maven') {
+                            sh 'mvn package'
+                        }
+                    } else {
+                        withMaven(maven: 'Maven') {
+                            sh 'mvn compile'
+                        }
                     }
-                    else {
-                    withMaven(maven : 'Maven) {
-                    sh 'mvn compile'
-                    }
-
                 }
             }
         }
