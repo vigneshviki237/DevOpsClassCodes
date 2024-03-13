@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Git checkout from the specified URL and branch
-                git branch: '${params.branches}', credentialsId: '', url: 'https://github.com/vigneshviki237/DevOpsClassCodes.git'
+                git branch: "${params.branches}", credentialsId: '', url: 'https://github.com/vigneshviki237/DevOpsClassCodes.git'
             }
         }
         stage('Maven Compile and Test') {
