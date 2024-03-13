@@ -8,14 +8,16 @@ pipeline {
                 git branch: "${params.branches}", credentialsId: '', url: 'https://github.com/vigneshviki237/DevOpsClassCodes.git'
             }
         }
-        stage('Maven Compile and Test') {
+        stage('Package or compile') {
             steps {
                 script {
-                    if (params.branches == 'test') {
-                            echo "test branch"
+                    if (params.branches == 'main') {
+                    withMaven(maven : 'Maven) {
+                    sh 'mvn package'
                     }
                     else {
-                        echo " this is not test branch"
+                        withMaven(maven : 'Maven) {
+                    sh 'mvn compile'
                     }
 
                 }
