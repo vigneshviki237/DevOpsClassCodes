@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     if (params.branches == 'main') {
-                    withMaven(maven : 'Maven) {
+                    withMaven(maven : 'Maven') {
                     sh 'mvn package'
                     }
                     else {
