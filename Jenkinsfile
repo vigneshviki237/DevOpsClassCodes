@@ -2,7 +2,14 @@ pipeline {
     agent any
 
     parameters {
-        choice(name: 'branches', choices: ['main', 'test'], description: 'Select branch to build')
+        // Add a parameter of type Git Parameter
+        gitParameter(
+            branchFilter: '.*', 
+            defaultValue: 'test', 
+            description: 'Select branch to build', 
+            name: 'branches', 
+            type: 'PT_BRANCH'
+        )
     }
 
     stages {
