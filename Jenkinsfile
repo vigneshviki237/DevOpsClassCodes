@@ -15,7 +15,7 @@ tools {
                 script {
                     if (params.branches == 'master') {
                         
-                            sh 'mvn package'
+                            sh 'mvn test'
                         
                     } else {
                       
