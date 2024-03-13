@@ -11,12 +11,12 @@ pipeline {
         stage('Package or compile') {
             steps {
                 script {
-                    if (params.branches == 'main') {
+                    if (params.branches == 'master') {
                     withMaven(maven : 'Maven') {
                     sh 'mvn package'
                     }
                     else {
-                        withMaven(maven : 'Maven) {
+                    withMaven(maven : 'Maven') {
                     sh 'mvn compile'
                     }
 
