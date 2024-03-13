@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+tools {
+  maven 'Maven'
+}
     stages {
         stage('Checkout') {
             steps {
@@ -12,13 +14,13 @@ pipeline {
             steps {
                 script {
                     if (params.branches == 'master') {
-                        withMaven(maven: 'Maven') {
+                        
                             sh 'mvn package'
-                        }
+                        
                     } else {
-                        withMaven(maven: 'Maven') {
+                      
                             sh 'mvn compile'
-                        }
+                        
                     }
                 }
             }
